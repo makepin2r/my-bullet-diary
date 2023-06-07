@@ -20,36 +20,46 @@
         margin: 30px auto auto auto;
     }
 
+    .box {
+        display: flex;
+        justify-content: center;
+    }
+
     .mybox {
         margin-top: 20px;
-        cursor: pointer;
+
         display: flex;
         flex-direction: column;
-        justify-content: center;
-        align-items: center;
 
+        width: 600px;
+        height: 100%;
+        cursor: pointer;
     }
+
     .mybox:hover {
-        .bi{display: block;}
+        .bi {
+            display: block;
+        }
+
+        .bi1 {
+            display: block;
+        }
     }
-        
 
     .today {
         margin-left: 10px;
         margin-right: 8px;
     }
-   
-
-    .bi:hover {
-        display: block
-    }
 
     .bi {
-        margin-right: 8px;
+        margin-left: 20px;
         display: none;
     }
-    .line {
-        text-decoration: line-through red;
+
+    .bi1 {
+        margin-left: auto;
+        margin-right: 20px;
+        display: none;
     }
 
     .temp {
@@ -70,11 +80,21 @@
                 rows.forEach((a) => {
                     let todo = a['list']
                     let num = a['num']
-                    let temp_html = `<h5 class='temp'>
-                                        <i class="bi bi-star" onclick="click()" id="star"></i>
+                    let isChecked = a['isChecked']
+                    let temp_html = ``
+                    if (isChecked === 0) {
+                        temp_html = `<h5 class='temp'>
+                                        <input class="form-check-input" onclick='check(${isChecked})' type="checkbox" id="checkboxNoLabel">
+                                        <i class="bi bi-star" onclick="focus(this)" id="star"></i>
                                         <p class='today'>${todo}</p>
-                                        <i onclick="del(${num})" class="bi bi-trash3"></i>
+                                        <i class="bi1 bi-trash3" onclick="del(${num})" ></i>
                                     </h5>`
+                    } else {
+                        temp_html = `<h5 class='temp'>
+                                        <i class="bi bi-star" onclick="focus(this)" id="star"></i>
+                                        <p class='today'>${todo}    <완료></p>
+                                    </h5>`
+                    }
                     $('#Todo-list').append(temp_html)
                 })
             })
@@ -92,15 +112,26 @@
             });
     }
     function save_list() {
-        let list = $("#input_box").val();
+        let list = $("#input_box").val()
 
-        let formData = new FormData();
-        formData.append("list_give", list);
+        let formData = new FormData()
+        formData.append("list_give", list)
 
         fetch("/list", { method: "POST", body: formData })
             .then((response) => response.json())
             .then((data) => {
-                alert(data["msg"]);
+                alert(data["msg"])
+                window.location.reload();
+            });
+    }
+    function check(isChecked) {
+        let formData = new FormData()
+        formData.append("check_give", isChecked)
+
+        fetch("/list/isChecked", { method: "POST", body: formData })
+            .then((response) => response.json())
+            .then((data) => {
+                alert(data["msg"])
                 window.location.reload();
             });
     }
@@ -132,9 +163,10 @@
                 <li><a class="dropdown-item" href="#">Separated link</a></li>
             </ul>
         </div>
-        <div class="mybox" id="Todo-list">
-
+        <div class="box">
+            <div class="mybox" id="Todo-list"></div>
         </div>
+
     </div>
 
 </body>

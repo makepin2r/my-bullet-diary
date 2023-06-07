@@ -18,7 +18,7 @@ def list_post():
     doc = {
         'num':count,  
         'list': list_receive,
-        'done' : 0   
+        'isChecked' : 0   
     }
     db.Todo.insert_one(doc)
     return jsonify({'msg': '추가완료!'})
@@ -26,13 +26,19 @@ def list_post():
 @app.route("/list/delete", methods=["POST"])
 def del_post():
     num_receive = request.form['num_give']
+
     db.Todo.delete_one({'num': int(num_receive)})
     return jsonify({'msg': "삭제완료!"})
 
-    
+@app.route("/list/isChecked", methods=["POST"])
+def checked_post():
+    check_receive = request.form['check_give']
+
+    db.Todo.update_one({'isChecked': int(check_receive)}, {'$set': {'isChecked': 1}})
+    return jsonify({'msg': "완료!"})
+
 @app.route("/list", methods=["GET"])
 def list_get():
-    
     all_lists = list(db.Todo.find({}, {'_id': False}))
     return jsonify({'result': all_lists})
 
