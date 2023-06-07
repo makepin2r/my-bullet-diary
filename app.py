@@ -18,7 +18,8 @@ def list_post():
     doc = {
         'num':count,  
         'list': list_receive,
-        'isChecked' : 0   
+        'isChecked' : 0,
+        'focused' : 0,   
     }
     db.Todo.insert_one(doc)
     return jsonify({'msg': '추가완료!'})
@@ -36,6 +37,13 @@ def checked_post():
 
     db.Todo.update_one({'isChecked': int(check_receive)}, {'$set': {'isChecked': 1}})
     return jsonify({'msg': "완료!"})
+
+@app.route("/list/focused", methods=["POST"])
+def focused_post():
+    focused_receive = request.form['focused_give']
+
+    db.Todo.update_one({'focused': int(focused_receive)}, {'$set': {'focused': 1}})
+    return jsonify({'msg': "중요!"})
 
 @app.route("/list", methods=["GET"])
 def list_get():
