@@ -6,40 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>MY BULLET JOURNAL 📕</title>
     <link rel="stylesheet" href="../assets/css/style.css" />
-    <style>
-      body {
-        padding-top: 20%;
-        padding-left: 5%;
-      }
-      .input_box {
-        width: 80vh;
-        height: 40px;
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: center;
-        border: 1.5px solid #dcdcdc;
-        padding: 0;
-      }
-      .input_box > #input_select {
-        width: 15%;
-        font-size: 14px;
-        border: none;
-        border-right: 2px solid #dcdcdc;
-      }
-      .input_box > #todo_input {
-        width: 75%;
-        border: none;
-      }
-      .input_box > #todo_btn {
-        width: 10%;
-        height: 40px;
-        background-color: #e6e6fa;
-        border: none;
-        border-radius: 0;
-        color: #9C9C9C;
-      }
-    </style>
   </head>
   <body>
     <div class="input_box" id="input_box">
@@ -48,7 +14,11 @@
         <option value="2">SCHEDLE</option>
         <option value="3">MEMO</option>
       </select>
-      <input id="todo_input" type="text" placeholder="할일을 입력하세요&#128393;" />
+      <input
+        id="todo_input"
+        type="text"
+        placeholder="할일을 입력하세요&#128393;"
+      />
       <input id="todo_btn" type="submit" value="추가" />
     </div>
     <script src="../assets/js/script.js"></script>
