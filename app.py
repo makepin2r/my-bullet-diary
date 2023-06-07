@@ -1,15 +1,18 @@
 from flask import Flask, render_template, request, jsonify
 app = Flask(__name__)
 
+
+from pymongo import MongoClient
+import certifi
+ca = certifi.where()
+client = MongoClient('mongodb+srv://sparta:test@cluster0.0mtn7sx.mongodb.net/?retryWrites=true&w=majority', tlsCAFile=ca)      # 주소 넣기
+db = client.dbsparta
+
 @app.route('/')
 def home():
     return render_template('index.html')
 
-@app.route("/bucket", methods=["POST"])
-def bucket_post():
-    sample_receive = request.form['sample_give']
-    print(sample_receive)
-    return jsonify({'msg': 'POST 연결 완료!'})
+
     
 @app.route("/bucket", methods=["GET"])
 def bucket_get():
