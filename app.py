@@ -12,7 +12,14 @@ db = client.dbsparta
 def home():
     return render_template('index.html')
 
-
+@app.route("/inputData", methods=["POST"])
+def inputData_post():
+    bucket_receive = request.form['bucket_give']
+    doc = {
+        'bucket': bucket_receive
+    }
+    db.tododb.insert_one(doc)
+    return jsonify({'msg': '저장완료!'})
     
 @app.route("/bucket", methods=["GET"])
 def bucket_get():
