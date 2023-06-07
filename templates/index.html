@@ -5,7 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>MY BULLET JOURNAL 📕</title>
-    <link rel="stylesheet" href="../assets/css/style.css" />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/w3.css')}}"
+    />
   </head>
   <body>
     <div class="input_box" id="input_box">
@@ -21,6 +24,6 @@
       />
       <input id="todo_btn" type="submit" value="추가" />
     </div>
-    <script src="../assets/js/script.js"></script>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
   </body>
 </html>
