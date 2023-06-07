@@ -1,0 +1,14 @@
+/* 초기화 및 전역 스타일링 파일입니다. */
+
+* {
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;500;700&display=swap');
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+h1 {
+    font-weight: 700;
+}
+
+.heading {
+    font-weight: 500;
+}

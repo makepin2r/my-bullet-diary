@@ -1,0 +1,20 @@
+.wrap {
+    width: 600px;
+    margin: auto;
+    margin-top: 2em;
+    padding: 50px;
+    border: 1px solid #1e1e1e;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.wrap > .heading {
+    margin: 15px auto 10px 0;
+    font-weight: 700;
+}
+
+.wrap > .btn-wrap {
+    margin-top: 20px;
+}
