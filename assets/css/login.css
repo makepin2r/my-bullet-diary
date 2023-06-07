@@ -18,3 +18,24 @@
 .wrap > .btn-wrap {
     margin-top: 20px;
 }
+
+.wrap > .msg {
+    margin-top: 10px;
+}
+
+.signup-wrap > .msg {
+    margin-right: auto;
+    margin-top: 0;
+}
+
+.signup-wrap > .input-group {
+    margin-bottom: 5px !important;
+}
+
+.wrap > .msg.msg-error {
+    color: #e35d6a;
+}
+.wrap > .msg.msg-success {
+    color: #75b798;
+}
+
