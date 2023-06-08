@@ -13,9 +13,15 @@ def home():
 
 @app.route("/inputData", methods=["POST"])
 def inputData_post():
-    bucket_receive = request.form['bucket_give']
-    doc = {
-        'bucket': bucket_receive
+    todo_receive = request.form['todo_give']
+    selc_receive = request.form['todo_give']
+    
+    doc = {"database":[
+        {
+            'todo': todo_receive
+
+        }
+    ]
     }
     db.tododb.insert_one(doc)
     return jsonify({'msg': '저장완료!'})
