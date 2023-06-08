@@ -11,11 +11,22 @@
 body {
   padding-top: 8%;
 }
+#header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
 #today_box {
   width: 40vh;
   margin: 2.5% auto;
   font-size: 35px;
   padding: 0;
+}
+#hello_box{
+  font-size: 17.5px;
+  color: #4F4F4F;
+  margin-right: auto;
 }
 .input_box {
   width: 80vh;
