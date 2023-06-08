@@ -1,9 +1,18 @@
-<<<<<<< HEAD
-/* 초기화 및 전역 스타일링 파일입니다. */
+@font-face {
+  font-family: "omyu_pretty";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-01@1.0/omyu_pretty.woff2")
+    format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}
 
 * {
     @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;500;700&display=swap');
-    font-family: 'Noto Sans KR', sans-serif;
+    font-family: "omyu_pretty";
+}
+
+body {
+  padding-top: 8%;
 }
 
 .heading {
@@ -12,37 +21,28 @@
 
 .hide {
     display: none;
-=======
-@font-face {
-  font-family: "omyu_pretty";
-  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-01@1.0/omyu_pretty.woff2")
-    format("woff2");
-  font-weight: normal;
-  font-style: normal;
 }
-* {
-  font-family: "omyu_pretty";
-}
-body {
-  padding-top: 8%;
-}
+
 #header {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
 }
+
 #today_box {
   width: 40vh;
   margin: 2.5% auto;
   font-size: 35px;
   padding: 0;
 }
+
 #hello_box{
   font-size: 17.5px;
   color: #4F4F4F;
   margin-right: 10%;
 }
+
 .input_box {
   width: 80vh;
   height: 40px;
@@ -54,16 +54,19 @@ body {
   padding: 0;
   margin: 0 auto;
 }
+
 .input_box > #input_select {
   width: 15%;
   font-size: 14px;
   border: none;
   border-right: 2px solid #dcdcdc;
 }
+
 .input_box > #todo_input {
   width: 75%;
   border: none;
 }
+
 .input_box > #todo_btn {
   width: 10%;
   height: 40px;
@@ -72,9 +75,11 @@ body {
   border-radius: 0;
   color: #9c9c9c;
 }
+
 .input_box > #todo_btn {
   cursor: pointer;
 }
+
 .input-group {
   width: 600px;
   margin: 30px auto auto auto;
@@ -103,6 +108,7 @@ body {
   align-items: center;
   margin-bottom: 10px;
 }
+
 .todo-elem > .text {
   margin: 0 10px;
   font-size: 24px;
@@ -111,6 +117,7 @@ body {
   justify-content: flex-start;
   align-items: center;
 }
+
 .todo-elem .icon {
   width: 30px;
   height: 30px;
@@ -158,5 +165,4 @@ body {
 .todo-elem > .text:hover > .icon.bin {
   opacity: 100%;
   transition: opacity 0.8s ease-out;
->>>>>>> 8a3a2648a4ea964154fe9d52b068eec0a405e973
 }
