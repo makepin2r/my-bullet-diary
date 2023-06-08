@@ -18,29 +18,31 @@ function show_list() {
         let isHighlighted = a["isHighlighted"];
 
         let temp_html = ``;
-        switch(selc) {
-          case '1': // 체크박스
+        switch(parseInt(selc)) {
+          case 1: // 체크박스
             temp_html = `<li class="todo-elem">
                         <i class="icon star${isHighlighted ? " filled" : ""} " onclick='focusing${isHighlighted? "2" : "1"}(${id})'></i>
                         <i class="icon checkbox${isChecked ? ' checked' : ''}" onclick='check(${id}, ${isChecked})' ></i>
                         <p class="text">${todo}<i class="icon bin" onclick="del(${id})"></i></p>
                       </li>`;
             break;
-          case '2': // 스케줄
+          case 2: // 스케줄
             temp_html = `<li class="todo-elem">
                         <i class="icon star${isHighlighted ? " filled" : ""} " onclick='focusing${isHighlighted? "2" : "1"}(${id})'></i>
                         <i class="icon schedule"></i>
                         <p class="text">${todo}<i class="icon bin" onclick="del(${id})"></i></p>
                       </li>`;
             break;
-          case '3': // 메모
+          case 3: // 메모
             temp_html = `<li class="todo-elem">
                         <i class="icon star${isHighlighted ? " filled" : ""} " onclick='focusing${isHighlighted? "2" : "1"}(${id})'></i>
                         <i class="icon memo"></i>
                         <p class="text">${todo}<i class="icon bin" onclick="del(${id})"></i></p>
                       </li>`;
             break;
-
+          default:
+            console.log('안걸림')
+            break;
         }
         
         $("#Todo-list").append(temp_html);
