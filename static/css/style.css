@@ -29,7 +29,7 @@ body {
   margin-right: 10%;
 }
 .input_box {
-  width: 80vh;
+  width: 90vh;
   height: 40px;
   display: flex;
   flex-direction: row;
@@ -76,9 +76,10 @@ body {
   display: flex;
   flex-direction: column;
 
-  width: 1000px;
+  width: 90vh;
   height: 100%;
   cursor: pointer;
+  padding: 0;
 }
 
 .todo-elem {

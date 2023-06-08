@@ -21,21 +21,21 @@ function show_list() {
         switch(selc) {
           case '1': // 체크박스
             temp_html = `<li class="todo-elem">
-                        <i class="icon star" onclick="focusing(${isHighlighted})"></i>
+                        <i class="icon star${isHighlighted ? " filled" : ""} " onclick='focusing${isHighlighted? "2" : "1"}(${id})'></i>
                         <i class="icon checkbox${isChecked ? ' checked' : ''}" onclick='check(${id}, ${isChecked})' ></i>
                         <p class="text">${todo}<i class="icon bin" onclick="del(${id})"></i></p>
                       </li>`;
             break;
-          case 2: // 스케줄
+          case '2': // 스케줄
             temp_html = `<li class="todo-elem">
-                        <i class="icon star" onclick="focusing(${isHighlighted})"></i>
+                        <i class="icon star${isHighlighted ? " filled" : ""} " onclick='focusing${isHighlighted? "2" : "1"}(${id})'></i>
                         <i class="icon schedule"></i>
                         <p class="text">${todo}<i class="icon bin" onclick="del(${id})"></i></p>
                       </li>`;
             break;
-          case 3: // 메모
+          case '3': // 메모
             temp_html = `<li class="todo-elem">
-                        <i class="icon star" onclick="focusing(${isHighlighted})"></i>
+                        <i class="icon star${isHighlighted ? " filled" : ""} " onclick='focusing${isHighlighted? "2" : "1"}(${id})'></i>
                         <i class="icon memo"></i>
                         <p class="text">${todo}<i class="icon bin" onclick="del(${id})"></i></p>
                       </li>`;
@@ -71,17 +71,37 @@ function check(id, checked) {
       window.location.reload();
     });
 }
-function focusing(focused) {
-  let formData = new FormData();
-  formData.append("focused_give", focused);
 
+// 별 켜기
+const focusing1 = (id) => {
+  let formData = new FormData();
+  formData.append("highlighted_give", 1);
+  formData.append("id_give", id);
+  console.log(id, 1)
+  
   fetch("/list/focused", { method: "POST", body: formData })
-    .then((response) => response.json())
-    .then((data) => {
-      alert(data["msg"]);
+    .then((response) =>{ return response.json()})
+    .then((response) => {
+      alert(response.msg);
       window.location.reload();
     });
-}
+};
+
+// 별 끄기
+const focusing2 = (id) => {
+  let formData = new FormData();
+  formData.append("highlighted_give", 0);
+  formData.append("id_give", id);
+
+  console.log(id, 0)
+  
+  fetch("/list/focused", { method: "POST", body: formData })
+    .then((response) =>{ return response.json()})
+    .then((response) => {
+      alert(response.msg);
+      window.location.reload();
+    });
+};
 
 const clickInputData = () => {
   let todo = document.getElementById("todo_input").value;
