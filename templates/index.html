@@ -29,7 +29,8 @@
   <body>
     <div id="header">
       <div id="today_box"></div>
-      <div id="hello_box"></div>
+      <div id="hello_box">안녕하세요, {{username}}님! 🥰</div>
+      <a class="btn btn-outline-dark" href={{url_for("logout")}}>Logout</a>
     </div>
     <div class="input_box" id="input_box">
       <select class="input_select" id="input_select">

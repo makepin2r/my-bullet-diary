@@ -1,7 +1,6 @@
 $(document).ready(function () {
   show_list();
   today();
-  hello();
 });
 function show_list() {
   $("#Todo-list").empty;
@@ -10,7 +9,6 @@ function show_list() {
     .then((data) => {
       let rows = data["result"];
       rows.forEach((a) => {
-        console.log(a)
         let todo = a["list"];
         let selc = a["selc"];
         let id = a["id"];
@@ -40,9 +38,6 @@ function show_list() {
                         <p class="text">${todo}<i class="icon bin" onclick="del(${id})"></i></p>
                       </li>`;
             break;
-          default:
-            console.log('안걸림')
-            break;
         }
         
         $("#Todo-list").append(temp_html);
@@ -57,7 +52,6 @@ function del(num) {
   fetch("/list/delete", { method: "POST", body: formData })
     .then((response) => response.json())
     .then((data) => {
-      alert(data["msg"]);
       window.location.reload();
     });
 }
@@ -100,7 +94,6 @@ const focusing2 = (id) => {
   fetch("/list/focused", { method: "POST", body: formData })
     .then((response) =>{ return response.json()})
     .then((response) => {
-      alert(response.msg);
       window.location.reload();
     });
 };
@@ -117,7 +110,6 @@ const clickInputData = () => {
   fetch("/inputData", { method: "POST", body: formData })
     .then((response) => response.json())
     .then((response) => {
-      alert(response.msg);
       window.location.reload();
     });
 };
@@ -133,10 +125,6 @@ const today = () => {
   document.getElementById(
     "today_box"
   ).innerHTML = `${month} ${day} ${year} ${week}`;
-};
-
-const hello = () => {
-  document.getElementById("hello_box").innerHTML = `안녕하세요,님&#128516;`;
 };
 
 

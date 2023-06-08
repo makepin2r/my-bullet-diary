@@ -1,5 +1,6 @@
-from flask import Flask, render_template, request, jsonify
+from flask import Flask, url_for, render_template, request, jsonify, session, redirect
 app = Flask(__name__)
+app.secret_key = "ah#jsdl2!sdl@jslkd!hg4as9lk"
 
 from pymongo import MongoClient
 import certifi
@@ -8,24 +9,37 @@ client = MongoClient('mongodb+srv://sparta:test@cluster0.0mtn7sx.mongodb.net/?re
 db = client.dbsparta
 count = 0
 
+ID = "test"
+PW = "zbxlQhWkr7wh"
+
 @app.route('/')
 def home():
-    return render_template('index.html')
-@app.route('/register')
-def register():
-    return render_template('register.html')
-
-@app.route("/login", methods=["POST"])
-def login():
-    id_receive = request.form['id_give']
-    pw_receive = request.form['pw_give'] # 암호화 필요
-    # 유효성 체크 후 결과값 전송
-    msg = False
-    if True:
-        msg = True
+    if "userID" in session:
+        print("userID", session["userID"])
+        return render_template("index.html", username = session.get("userID"), login = True)
     else:
-        msg = False
-    return jsonify({'result': msg})
+        print("no userID")
+        return render_template("login.html", login = False)
+    
+
+
+@app.route("/login", methods=["GET","POST"])
+def login():
+    global ID, PW
+    id_receive = request.args.get("loginID")
+    pw_receive = request.args.get("loginPW")
+
+    if ID == id_receive and PW == pw_receive:
+        print(id_receive, pw_receive)
+        session["userID"] = id_receive
+        return redirect(url_for("home"))
+    else:
+        return redirect(url_for("home"))
+
+@app.route("/logout")
+def logout():
+    session.pop("userID")
+    return redirect(url_for("home"))
 
 @app.route("/inputData", methods=["POST"])
 def inputData_post():
@@ -75,4 +89,4 @@ def list_get():
     return jsonify({'result': all_lists})
 
 if __name__ == '__main__':
-    app.run('0.0.0.0', port=5000, debug=True)
+    app.run(host='0.0.0.0', port=5000, debug=True)

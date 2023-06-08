@@ -24,10 +24,12 @@ body {
 }
 
 #header {
+  width: 90vh;
+  margin: auto;
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-star;
 }
 
 #today_box {
@@ -38,9 +40,10 @@ body {
 }
 
 #hello_box{
+  min-width: 22vh;
   font-size: 17.5px;
   color: #4F4F4F;
-  margin-right: 10%;
+  margin-left: auto;
 }
 
 .input_box {
