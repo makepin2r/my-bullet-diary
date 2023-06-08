@@ -14,3 +14,23 @@ const clickInputData = () => {
       window.location.reload();
     });
 };
+
+const today = () => {
+  const date = new Date();
+  const year = date.getFullYear();
+  const month = date.toLocaleString("en-kr", { month: "short" });
+  const day = date.getDate();
+  const days = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"];
+  const week = days[date.getDay()];
+
+  document.getElementById(
+    "today_box"
+  ).innerHTML = `${month} ${day} ${year} ${week}`;
+};
+
+const hello = () => {
+  document.getElementById("hello_box").innerHTML = `안녕하세요,님&#128516;`;
+};
+
+today();
+hello();
