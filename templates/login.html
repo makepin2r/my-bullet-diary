@@ -22,23 +22,17 @@
     <title>Document</title>
 </head>
 <body>
-    <div class="wrap login-wrap">
+    <div class="wrap">
         <h1>MY BULLET JOURNAL📕</h1>
-        <p class="heading">ID</p>
         <form methods="POST" id="login" action={{url_for("login")}}>
-                <div class="input-group mb-3">
-                    <input type="text" id="loginID" name="loginID" class="form-control" placeholder="ID를 입력해주세요" aria-label="id" aria-describedby="basic-addon1">
-                </div>
-                <p class="heading">PASSWORD</p>
-                <div class="input-group mb-3">
-                    <input type="password" id="loginPW" name="loginPW" class="form-control" placeholder="비밀번호를 입력해주세요" aria-label="pw" aria-describedby="basic-addon1">
-                </div>
+            <p class="heading">ID</p>
+            <input type="text" id="loginID" name="loginID" class="input_box" placeholder="ID를 입력해주세요" >
+            <p class="heading">PASSWORD</p>                
+            <input type="password" id="loginPW" name="loginPW" class="input_box" placeholder="비밀번호를 입력해주세요">
             <p class="msg msg-error">존재하지 않는 아이디입니다.</p>
-            <div class="btn-wrap">
-                <button type="submit" class="btn btn-outline-dark">Login</button>
-            </div>
+            <button type="submit" class="btn btn-outline-dark">Login</button>
         </form>
     </div>
-    <script src="../static/js/login.js"></script>
+    <div class="paperOverlay"></div>
 </body>
 </html>

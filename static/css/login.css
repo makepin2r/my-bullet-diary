@@ -1,41 +1,51 @@
+h1 {
+    font-size: 35px;
+    margin-bottom: 5vh;
+}
+
+.heading {
+    font-size: 20px;
+    margin-right: auto;
+    margin-bottom: 2vh;
+}
+
 .wrap {
-    width: 600px;
+    width: 90vh;
     margin: auto;
-    margin-top: 2em;
-    padding: 50px;
-    border: 1px solid #1e1e1e;
     display: flex;
     flex-direction: column;
-    align-items: center;
     justify-content: center;
+    align-items: center;
 }
 
-.wrap > .heading {
-    margin: 15px auto 10px 0;
-    font-weight: 700;
+form#login {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
-.wrap > .btn-wrap {
-    margin-top: 20px;
+.input_box {
+    padding: 0 20px;
+    width: 100%;
+    margin-bottom: 3vh;
 }
 
-.wrap > .msg {
-    margin-top: 10px;
+.msg {
+    margin: 10px 0 20px;
+    font-size: 18px;
 }
-
-.signup-wrap > .msg {
-    margin-right: auto;
-    margin-top: 0;
-}
-
-.signup-wrap > .input-group {
-    margin-bottom: 5px !important;
-}
-
-.wrap > .msg.msg-error {
+.msg.msg-error {
     color: #e35d6a;
 }
-.wrap > .msg.msg-success {
+.msg.msg-success {
     color: #75b798;
 }
+
+.btn {
+    font-size: 20px;
+}
+
+
 
