@@ -18,16 +18,29 @@ function show_list() {
         let isHighlighted = a["isHighlighted"];
 
         let temp_html = ``;
-        temp_html = `<li class="todo-elem">
-                        <i class="icon star${
-                          isHighlighted ? " filled" : ""
-                        } " onclick="focusing(${id})"></i>
-                        <i class="icon checkbox${
-                          isChecked ? " checked" : ""
-                        }" onclick='check(${id})' ></i>
-                        <p class="text">${todo}.</p>
-                        <i class="icon bin" onclick="del(${id})"></i>
-                      </li>`;
+        if(isHighlighted == 0){
+          temp_html = `<li class="todo-elem">
+                          <i class="icon star${
+                            isHighlighted ? " filled" : ""
+                          } " onclick='focusing(${id})'></i>
+                          <i class="icon checkbox${
+                            isChecked ? " checked" : ""
+                          }" onclick='check(${id})' ></i>
+                          <p class="text">${todo}.</p>
+                          <i class="icon bin" onclick="del(${id})"></i>
+                        </li>`;
+        }else{
+          temp_html = `<li class="todo-elem">
+                          <i class="icon star${
+                            isHighlighted ? " filled" : ""
+                          } " onclick='focusing2(${id})'></i>
+                          <i class="icon checkbox${
+                            isChecked ? " checked" : ""
+                          }" onclick='check(${id})' ></i>
+                          <p class="text">${todo}.</p>
+                          <i class="icon bin" onclick="del(${id})"></i>
+                        </li>`;
+        }
         //console.log(temp_html);
         $("#Todo-list").append(temp_html);
       });
@@ -57,11 +70,16 @@ function check(id, checked) {
       window.location.reload();
     });
 }
-const focusing = (isHighlighted, id) => {
-  let formData = new FormData();
-  formData.append("highlighted_give", isHighlighted);
-  formData.append("id_give", id);
 
+
+
+
+const focusing = ( id) => {
+  let formData = new FormData();
+  formData.append("highlighted_give", 1);
+  formData.append("id_give", id);
+  console.log(id, 1)
+  
   fetch("/list/focused", { method: "POST", body: formData })
     .then((response) =>{ return response.json()})
     .then((response) => {
@@ -69,6 +87,25 @@ const focusing = (isHighlighted, id) => {
       window.location.reload();
     });
 };
+const focusing2 = ( id) => {
+  let formData = new FormData();
+  formData.append("highlighted_give", 0);
+  formData.append("id_give", id);
+
+  console.log(id, 0)
+  
+  fetch("/list/focused", { method: "POST", body: formData })
+    .then((response) =>{ return response.json()})
+    .then((response) => {
+      alert(response.msg);
+      window.location.reload();
+    });
+};
+
+
+
+
+
 
 const clickInputData = () => {
   let todo = document.getElementById("todo_input").value;

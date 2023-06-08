@@ -6,7 +6,6 @@ import certifi
 ca = certifi.where()
 client = MongoClient('mongodb+srv://sparta:test@cluster0.0mtn7sx.mongodb.net/?retryWrites=true&w=majority', tlsCAFile=ca) 
 db = client.dbsparta
-count = 0 # inputData에서 사용할 ID용 카운트
 
 @app.route('/')
 def home():
@@ -19,10 +18,8 @@ def inputData_post():
     
     # 아이디 생성을 위한 카운트 생성
     Todo_list = list(db.tododb.find({}, {'_id': False})) 
-    count = count + 1 
-
     doc = {
-        'id':count,             # id
+        'id':len(Todo_list),             # id
         'selc': selc_receive,   # 불렛 종류
         'list': todo_receive,   # 텍스트
         'isChecked' : 0,        # 체크박스 체크 여부
@@ -62,14 +59,16 @@ def checked_post():
     
     print("isChecked", check_receive, (check_receive ^ 1))
 
-    db.tododb.update_one({'id': id_receive}, {'$set': {'isChecked': (check_receive ^ 1)}})
+    db.tododb.update_one({'id': int(id_receive)}, {'$set': {'isChecked': int(check_receive ^ 1)}})
     return jsonify({'msg': "완료!"})
 
 @app.route("/list/focused", methods=["POST"])
 def highlighted_post():
     highlighted_receive = request.form['highlighted_give']
     id_receive = request.form['id_give']
-    db.tododb.update_one({'id': id_receive}, {'$set': {'isHighlighted': (highlighted_receive ^ 1)}})
+    print('test : '+id_receive)
+    print(int(highlighted_receive))
+    db.tododb.update_one({'id' : int(id_receive)}, {'$set': {'isHighlighted': int(highlighted_receive)}})
     return jsonify({'msg': "중요!"})
 
 @app.route("/list", methods=["GET"])
