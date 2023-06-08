@@ -20,11 +20,9 @@ function show_list() {
         let temp_html = ``;
         temp_html = `<li class="todo-elem">
                         <i class="icon star" onclick="focusing(${isHighlighted})"></i>
-                        <i class="icon checkbox${isChecked ? ' checked' : ''}" onclick='check(${id})' ></i>
-                        <p class="text">${todo}.</p>
-                        <i class="icon bin" onclick="del(${id})"></i>
+                        <i class="icon checkbox${isChecked ? ' checked' : ''}" onclick='check(${id}, ${isChecked})' ></i>
+                        <p class="text">${todo}<i class="icon bin" onclick="del(${id})"></i></p>
                       </li>`;
-        //console.log(temp_html);
         $("#Todo-list").append(temp_html);
       });
     });

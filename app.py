@@ -57,8 +57,8 @@ def del_post():
 
 @app.route("/list/isChecked", methods=["POST"])
 def checked_post():
-    id_receive = request.form['id_give']
-    check_receive = request.form['check_give']
+    id_receive = int(request.form['id_give'])
+    check_receive = int(request.form['check_give'])
     
     print("isChecked", check_receive, (check_receive ^ 1))
 

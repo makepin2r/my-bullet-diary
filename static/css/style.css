@@ -91,29 +91,47 @@ body {
 .todo-elem > .text {
   margin: 0 10px;
   font-size: 24px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
 }
-.todo-elem > .icon {
+.todo-elem .icon {
   width: 30px;
   height: 30px;
   background-size: cover;
 }
-.todo-elem > .icon.checkbox {
+
+.todo-elem .icon.checkbox {
   background-image: url('../images/icon-checkbox-blank.svg');
 }
-.todo-elem > .icon.checkbox.checked {
+.todo-elem .icon.checkbox.checked {
   background-image: url('../images/icon-checkbox-checked.svg');
 }
-.todo-elem > .icon.star {
+.todo-elem .icon.star {
   background-image: url('../images/icon-star-blank.svg');
+  fill: #ffda6a;
+  opacity: 0;
+  margin-right: 10px;
 }
-.todo-elem > .icon.star.filled {
+.todo-elem .icon.star:hover {
+  opacity: 80%;
+  transition: opacity 0.5s ease-out;
+}
+
+.todo-elem .icon.star.filled {
   background-image: url('../images/icon-star-filled.svg');
+  fill: #ffda6a;
+  opacity: 100%;
 }
-.todo-elem > .icon.bin {
+.todo-elem > .text > .icon.bin {
   background-image: url('../images/icon-bin.svg');
   margin-left: 0;
-  display: none;
+  opacity: 0;
+  margin-left: 10px;
+  cursor: pointer;
 }
-.todo-elem:hover > .icon.bin {
-  display: block;
+.todo-elem > .text:hover > .icon.bin {
+  opacity: 100%;
+  transition: opacity 0.8s ease-out;
 }
