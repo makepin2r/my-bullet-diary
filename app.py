@@ -66,10 +66,10 @@ def checked_post():
     return jsonify({'msg': "완료!"})
 
 @app.route("/list/focused", methods=["POST"])
-def focused_post():
-    focused_receive = request.form['focused_give']
-
-    db.tododb.update_one({'focused': int(focused_receive)}, {'$set': {'focused': 1}})
+def highlighted_post():
+    highlighted_receive = request.form['highlighted_give']
+    id_receive = request.form['id_give']
+    db.tododb.update_one({'id': id_receive}, {'$set': {'isHighlighted': (highlighted_receive ^ 1)}})
     return jsonify({'msg': "중요!"})
 
 @app.route("/list", methods=["GET"])

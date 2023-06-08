@@ -10,7 +10,7 @@ function show_list() {
     .then((data) => {
       let rows = data["result"];
       rows.forEach((a) => {
-        console.log(a)
+        console.log(a);
         let todo = a["list"];
         let selc = a["selc"];
         let id = a["id"];
@@ -19,8 +19,12 @@ function show_list() {
 
         let temp_html = ``;
         temp_html = `<li class="todo-elem">
-                        <i class="icon star" onclick="focusing(${isHighlighted})"></i>
-                        <i class="icon checkbox${isChecked ? ' checked' : ''}" onclick='check(${id})' ></i>
+                        <i class="icon star${
+                          isHighlighted ? " filled" : ""
+                        } " onclick="focusing(${id})"></i>
+                        <i class="icon checkbox${
+                          isChecked ? " checked" : ""
+                        }" onclick='check(${id})' ></i>
                         <p class="text">${todo}.</p>
                         <i class="icon bin" onclick="del(${id})"></i>
                       </li>`;
@@ -53,17 +57,18 @@ function check(id, checked) {
       window.location.reload();
     });
 }
-function focusing(focused) {
+const focusing = (isHighlighted, id) => {
   let formData = new FormData();
-  formData.append("focused_give", focused);
+  formData.append("highlighted_give", isHighlighted);
+  formData.append("id_give", id);
 
   fetch("/list/focused", { method: "POST", body: formData })
-    .then((response) => response.json())
-    .then((data) => {
-      alert(data["msg"]);
+    .then((response) =>{ return response.json()})
+    .then((response) => {
+      alert(response.msg);
       window.location.reload();
     });
-}
+};
 
 const clickInputData = () => {
   let todo = document.getElementById("todo_input").value;
@@ -98,5 +103,3 @@ const today = () => {
 const hello = () => {
   document.getElementById("hello_box").innerHTML = `안녕하세요,님&#128516;`;
 };
-
-
