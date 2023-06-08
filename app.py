@@ -6,7 +6,7 @@ import certifi
 ca = certifi.where()
 client = MongoClient('mongodb+srv://sparta:test@cluster0.0mtn7sx.mongodb.net/?retryWrites=true&w=majority', tlsCAFile=ca) 
 db = client.dbsparta
-count = 0 # inputData에서 사용할 ID용 카운트
+count = 0
 
 @app.route('/')
 def home():
@@ -14,11 +14,11 @@ def home():
 
 @app.route("/inputData", methods=["POST"])
 def inputData_post():
+    global count
     todo_receive = request.form['todo_give']
     selc_receive = request.form['selc_give']
     
     # 아이디 생성을 위한 카운트 생성
-    Todo_list = list(db.tododb.find({}, {'_id': False})) 
     count = count + 1 
 
     doc = {
@@ -29,24 +29,10 @@ def inputData_post():
         'isHighlighted' : 0     # 별표 여부
     }
 
-    db.tododb.insert_one(doc)
-    return jsonify({'msg': '저장완료!'})
+    test = db.tododb.insert_one(doc)
+    print(test)
+    return jsonify({"msg": "저장완료!"})
     
-
-# @app.route("/list", methods=["POST"])
-# def list_post():
-#     list_receive = request.form['list_give']
-
-#     Todo_list = list(db.Todo.find({}, {'_id': False}))
-#     count = len(Todo_list) + 1
-#     doc = {
-#         'id':count,             # id
-#         'list': list_receive,   # 텍스트
-#         'isChecked' : 0,        # 체크박스 체크 여부
-#         'isHighlighted' : 0,          # 별표 여부
-#     }
-#     db.Todo.insert_one(doc)
-#     return jsonify({'msg': '추가완료!'})
 
 @app.route("/list/delete", methods=["POST"])
 def del_post():
@@ -60,8 +46,6 @@ def checked_post():
     id_receive = int(request.form['id_give'])
     check_receive = int(request.form['check_give'])
     
-    print("isChecked", check_receive, (check_receive ^ 1))
-
     db.tododb.update_one({'id': id_receive}, {'$set': {'isChecked': (check_receive ^ 1)}})
     return jsonify({'msg': "완료!"})
 

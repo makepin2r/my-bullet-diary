@@ -110,7 +110,6 @@ body {
 }
 .todo-elem .icon.star {
   background-image: url('../images/icon-star-blank.svg');
-  fill: #ffda6a;
   opacity: 0;
   margin-right: 10px;
 }
@@ -121,7 +120,6 @@ body {
 
 .todo-elem .icon.star.filled {
   background-image: url('../images/icon-star-filled.svg');
-  fill: #ffda6a;
   opacity: 100%;
 }
 .todo-elem > .text > .icon.bin {

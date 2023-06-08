@@ -74,8 +74,8 @@ const clickInputData = () => {
   console.log(todo, selc);
   fetch("/inputData", { method: "POST", body: formData })
     .then((response) => response.json())
-    .then((data) => {
-      alert(data["msg"]);
+    .then((response) => {
+      alert(response.msg);
       window.location.reload();
     });
 };
