@@ -18,7 +18,8 @@ def inputData_post():
     
     doc = {"database":[
         {
-            'todo': todo_receive
+            'todo': todo_receive,
+            'selc': selc_receive
 
         }
     ]

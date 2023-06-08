@@ -3,8 +3,8 @@ const clickInputData = () => {
   let selc = document.getElementById("input_select").value;
 
   let formData = new FormData();
-  formData.append("todo_give", bucket);
-  formData.append("selc_give", bucket);
+  formData.append("todo_give", todo);
+  formData.append("selc_give", selc);
 
   console.log(todo, selc);
   fetch("/inputData", { method: "POST", body: formData })
