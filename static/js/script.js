@@ -28,4 +28,9 @@ const today = () => {
   ).innerHTML = `${month} ${day} ${year} ${week}`;
 };
 
+const hello = () => {
+  document.getElementById("hello_box").innerHTML = `안녕하세요,님&#128516;`;
+};
+
 today();
+hello();
