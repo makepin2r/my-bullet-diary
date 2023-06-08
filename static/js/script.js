@@ -4,7 +4,7 @@ $(document).ready(function () {
   hello();
 });
 function show_list() {
-  //$("#Todo-list").empty;
+  $("#Todo-list").empty;
   fetch("/list")
     .then((res) => res.json())
     .then((data) => {
@@ -18,11 +18,31 @@ function show_list() {
         let isHighlighted = a["isHighlighted"];
 
         let temp_html = ``;
-        temp_html = `<li class="todo-elem">
+        switch(selc) {
+          case '1': // 체크박스
+            temp_html = `<li class="todo-elem">
                         <i class="icon star" onclick="focusing(${isHighlighted})"></i>
                         <i class="icon checkbox${isChecked ? ' checked' : ''}" onclick='check(${id}, ${isChecked})' ></i>
                         <p class="text">${todo}<i class="icon bin" onclick="del(${id})"></i></p>
                       </li>`;
+            break;
+          case 2: // 스케줄
+            temp_html = `<li class="todo-elem">
+                        <i class="icon star" onclick="focusing(${isHighlighted})"></i>
+                        <i class="icon schedule"></i>
+                        <p class="text">${todo}<i class="icon bin" onclick="del(${id})"></i></p>
+                      </li>`;
+            break;
+          case 3: // 메모
+            temp_html = `<li class="todo-elem">
+                        <i class="icon star" onclick="focusing(${isHighlighted})"></i>
+                        <i class="icon memo"></i>
+                        <p class="text">${todo}<i class="icon bin" onclick="del(${id})"></i></p>
+                      </li>`;
+            break;
+
+        }
+        
         $("#Todo-list").append(temp_html);
       });
     });

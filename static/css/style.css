@@ -102,6 +102,17 @@ body {
   background-size: cover;
 }
 
+.todo-elem .icon.schedule {
+  background-image: url('../images/icon-schedule.svg');
+}
+.todo-elem .icon.memo {
+  width: 20px;
+  height: 20px;
+  margin-left: 5px;
+  margin-right: 5px;
+  background-image: url('../images/icon-memo.svg');
+}
+
 .todo-elem .icon.checkbox {
   background-image: url('../images/icon-checkbox-blank.svg');
 }

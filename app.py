@@ -16,7 +16,7 @@ def home():
 def inputData_post():
     global count
     todo_receive = request.form['todo_give']
-    selc_receive = request.form['selc_give']
+    selc_receive = int(request.form['selc_give'])
     
     # 아이디 생성을 위한 카운트 생성
     count = count + 1 
