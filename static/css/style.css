@@ -30,3 +30,6 @@ body {
   border-radius: 0;
   color: #9c9c9c;
 }
+.input_box > #todo_btn {
+  cursor: pointer;
+}
