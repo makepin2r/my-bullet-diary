@@ -16,9 +16,9 @@
             integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
             crossorigin="anonymous"
         ></script>
-    <link rel="stylesheet" href="../assets/css/recet.css">
-    <link rel="stylesheet" href="../assets/css/style.css">
-    <link rel="stylesheet" href="../assets/css/login.css">
+    <link rel="stylesheet" href="../static/css/recet.css">
+    <link rel="stylesheet" href="../static/css/style.css">
+    <link rel="stylesheet" href="../static/css/login.css">
     <title>Document</title>
 </head>
 <body>
@@ -26,17 +26,18 @@
         <h1>MY BULLET JOURNAL📕</h1>
         <p class="heading">ID</p>
             <div class="input-group mb-3">
-                <input type="text" class="form-control" placeholder="ID를 입력해주세요" aria-label="id" aria-describedby="basic-addon1">
+                <input type="text" id="idForm" class="form-control" placeholder="ID를 입력해주세요" aria-label="id" aria-describedby="basic-addon1">
             </div>
             <p class="heading">PASSWORD</p>
             <div class="input-group mb-3">
-                <input type="password" class="form-control" placeholder="비밀번호를 입력해주세요" aria-label="pw" aria-describedby="basic-addon1">
+                <input type="password" id="pwForm" class="form-control" placeholder="비밀번호를 입력해주세요" aria-label="pw" aria-describedby="basic-addon1">
             </div>
             <p class="msg msg-error">존재하지 않는 아이디입니다.</p>
             <div class="btn-wrap">
-                <button type="button" class="btn btn-outline-dark">Login</button>
-                <button type="button" class="btn btn-outline-dark">Sign Up</button>
+                <button type="button" class="btn btn-outline-dark" onclick="login()">Login</button>
+                <button type="button" class="btn btn-outline-dark" onclick="location.href='signup.html'">Sign Up</button>
             </div>
     </div>
+    <script src="../static/js/login.js"></script>
 </body>
 </html>
