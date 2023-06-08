@@ -76,39 +76,44 @@ body {
   display: flex;
   flex-direction: column;
 
-  width: 600px;
+  width: 1000px;
   height: 100%;
   cursor: pointer;
 }
 
-.mybox:hover {
-  .bi {
-    display: block;
-  }
-
-  .bi1 {
-    display: block;
-  }
-}
-
-.today {
-  margin-left: 10px;
-  margin-right: 8px;
-}
-
-.bi {
-  margin-left: 20px;
-  display: none;
-}
-
-.bi1 {
-  margin-left: auto;
-  margin-right: 20px;
-  display: none;
-}
-
-.temp {
+.todo-elem {
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.todo-elem > .text {
+  margin: 0 10px;
+  font-size: 24px;
+}
+.todo-elem > .icon {
+  width: 30px;
+  height: 30px;
+  background-size: cover;
+}
+.todo-elem > .icon.checkbox {
+  background-image: url('../images/icon-checkbox-blank.svg');
+}
+.todo-elem > .icon.checkbox.checked {
+  background-image: url('../images/icon-checkbox-checked.svg');
+}
+.todo-elem > .icon.star {
+  background-image: url('../images/icon-star-blank.svg');
+}
+.todo-elem > .icon.star.filled {
+  background-image: url('../images/icon-star-filled.svg');
+}
+.todo-elem > .icon.bin {
+  background-image: url('../images/icon-bin.svg');
+  margin-left: 0;
+  display: none;
+}
+.todo-elem:hover > .icon.bin {
+  display: block;
 }

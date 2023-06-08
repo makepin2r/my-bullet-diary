@@ -49,46 +49,15 @@
         onclick="clickInputData()"
       />
     </div>
-
-    <div class="mypic">
-      <!-- <div class="input-group">
-        <button
-          class="btn btn-outline-secondary dropdown-toggle"
-          type="button"
-          data-bs-toggle="dropdown"
-          aria-expanded="false"
-        >
-          Dropdown
-        </button>
-        <ul class="dropdown-menu">
-          <li><a class="dropdown-item" href="#">Action before</a></li>
-          <li><a class="dropdown-item" href="#">Another action before</a></li>
-          <li><a class="dropdown-item" href="#">Something else here</a></li>
-          <li>
-            <hr class="dropdown-divider" />
-          </li>
-          <li><a class="dropdown-item" href="#">Separated link</a></li>
-        </ul>
-        <input type="text" id="input_box" class="form-control" />
-        <button
-          onclick="save_list()"
-          class="btn btn-outline-secondary"
-          type="button"
-        >
-          추가
-        </button>
-        <ul class="dropdown-menu dropdown-menu-end">
-          <li><a class="dropdown-item" href="#">Action</a></li>
-          <li><a class="dropdown-item" href="#">Another action</a></li>
-          <li><a class="dropdown-item" href="#">Something else here</a></li>
-          <li>
-            <hr class="dropdown-divider" />
-          </li>
-          <li><a class="dropdown-item" href="#">Separated link</a></li>
-        </ul>
-      </div> -->
       <div class="box">
-        <div class="mybox" id="Todo-list"></div>
+        <ul class="mybox" id="Todo-list">
+          <li class="todo-elem">
+            <i class="icon star"></i> <!-- 하이라이트 별 아이콘 -->
+            <i class="icon checkbox checked"></i> <!-- icon checkbox -->
+            <p class="text">텍스트입니다.</p> <!-- 텍스트 -->
+            <i class="icon bin" onclick="del(0)"></i> <!-- 지우기 아이콘 -->
+          </li>
+        </ul>
       </div>
     </div>
     <script type="text/javascript" src="{{ url_for('static', filename='js/script.js') }}"></script>
