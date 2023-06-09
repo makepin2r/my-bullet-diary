@@ -1,16 +1,17 @@
 h1 {
     font-size: 35px;
-    margin-bottom: 5vh;
+    margin-bottom: 40px;
+    font-weight: 700;
 }
 
 .heading {
     font-size: 20px;
     margin-right: auto;
-    margin-bottom: 2vh;
+    margin-bottom: 10px;
 }
 
 .wrap {
-    width: 90vh;
+    width: 600px;
     margin: auto;
     display: flex;
     flex-direction: column;
@@ -44,7 +45,6 @@ form#login {
 }
 
 .btn {
-    font-size: 20px;
     margin-top: 15px;
 }
 
