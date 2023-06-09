@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+            crossorigin="anonymous"
+        />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+            crossorigin="anonymous"
+        ></script>
+    <link rel="stylesheet" href="../static/css/reset.css">
+    <link rel="stylesheet" href="../static/css/style.css">
+    <link rel="stylesheet" href="../static/css/login.css">
+    <script src="../static/js/register.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div class="wrap signup-wrap">
+        <h1>회원 가입</h1>
+        <p class="heading">닉네임</p>
+            <div class="input-group mb-3">
+                <input id="nickname" type="text" class="form-control" placeholder="닉네임을 입력해주세요" aria-label="nickname" aria-describedby="basic-addon1">
+            </div>
+            <p class="heading">ID</p>
+            <div class="input-group mb-3">
+                <input id="userID" type="text" class="form-control" placeholder="아이디를 입력해주세요" aria-label="id" aria-describedby="button-addon2">
+                <button class="btn btn-outline-secondary" type="button" id="button-addon2">중복확인</button>
+            </div>
+            <p class="msg msg-error">사용할 수 없는 아이디입니다.</p>
+            <p class="heading">PASSWORD</p>
+            <div class="input-group mb-3">
+                <input id="userPW1" type="password" class="form-control" placeholder="영문 소문자, 숫자 8~15자" aria-label="pw" aria-describedby="basic-addon1" onchange="validatePW()">
+            </div>
+            <p id="pwMessage1" class="msg msg-error">영문 소문자, 숫자로 8~15자 입력해주세요</p>
+            <div class="input-group mb-3">
+                <input id="userPW2" type="password" class="form-control" placeholder="비밀번호를 한 번 더  입력해주세요" aria-label="pw" aria-describedby="basic-addon1">
+            </div>
+            <p id="pwMessage2" class="msg msg-error">비밀번호가 일치하지 않습니다</p>
+            <div class="btn-wrap">
+                <button type="button" class="btn btn-outline-dark">회원 가입</button>
+            </div>
+    </div>
+</body>
+</html>
