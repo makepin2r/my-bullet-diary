@@ -78,7 +78,6 @@ const focusing1 = (id) => {
   fetch("/list/focused", { method: "POST", body: formData })
     .then((response) =>{ return response.json()})
     .then((response) => {
-      alert(response.msg);
       window.location.reload();
     });
 };
