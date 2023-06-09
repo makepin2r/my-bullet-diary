@@ -9,13 +9,14 @@ HTML, CSS, JavaScript, Flask, MongoDB를 이용하여 제작했습니다.
 AWS Elastic Beanstalk으로 배포하였습니다.
 
 ### ABOUT US
-**팀장 [강경원](https://github.com/Kang-Gyeongwon)**
+
+#### 팀장 [강경원](https://github.com/Kang-Gyeongwon)
 - 리스트 요소 입력 기능 구현
 - 중요 표시 기능 구현
-**팀원 [김종화](https://github.com/kimjonghwa230412)**
+#### 팀원 [김종화](https://github.com/kimjonghwa230412)
 - 리스트 출력 기능 구현
 - 리스트 요소 삭제 기능 구현
-**팀원 [탁승현](https://github.com/makepin2r)**
+#### 팀원 [탁승현](https://github.com/makepin2r)
 - 로그인 기능 구현
 - 체크박스 기능 구현
 - 배포
